@@ -29,3 +29,9 @@ wheels: build
 
 tags:
 	uctags -R
+
+init:
+	poetry install
+
+run:
+	poetry run start.py
