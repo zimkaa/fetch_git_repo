@@ -14,6 +14,7 @@ from aiohttp import ClientSession, ClientTimeout
 
 from src.my_types import FileStructure, ResponseStructure, TreeElement
 
+
 HEADERS: Final[dict] = {"accept": "application/json"}
 
 URL: Final[str] = (
@@ -22,7 +23,7 @@ URL: Final[str] = (
 
 TEMP_FOLDER = Path("/tmp")
 
-TEMP_PROJECT_FOLDER = TEMP_FOLDER / Path("project")
+TEMP_PROJECT_FOLDER = TEMP_FOLDER / Path("fetch_git_repo")
 
 fmt = "%(asctime)s | %(levelname)8s | %(filename)s:%(lineno)3d | %(message)s"
 formatter = logging.Formatter(fmt)
