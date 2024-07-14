@@ -9,7 +9,6 @@ from mimesis import Cryptographic
 from mimesis import Internet
 from mimesis import Numeric
 from mimesis import Path
-from mimesis.schema import Field
 from mimesis.schema import Schema
 
 from src.my_types import FileStructure
@@ -23,7 +22,6 @@ text = base64.b64encode(byte_string).decode("utf-8")
 
 crypto = Cryptographic()
 internet = Internet()
-field = Field("en")
 path = Path()
 number = Numeric()
 
