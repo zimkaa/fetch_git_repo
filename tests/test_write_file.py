@@ -1,12 +1,11 @@
 import tempfile
 from pathlib import Path
-from unittest.mock import MagicMock
-from unittest.mock import patch
+from unittest.mock import MagicMock, patch
 
 import pytest
 
-from tests.conftest import ORIGINAL_STRING
 from src.main import _write_file
+from tests.conftest import ORIGINAL_STRING
 
 
 @pytest.mark.asyncio()
@@ -29,8 +28,7 @@ async def test_write_file_exception() -> None:
         test_file = Path(temp_dir) / "test.txt"
 
         with patch(
-            "aiofiles.open",
-            MagicMock(side_effect=IOError("Failed to write"))
+            "aiofiles.open", MagicMock(side_effect=IOError("Failed to write"))
         ) as mock_open:
             with pytest.raises(IOError):
                 await _write_file(ORIGINAL_STRING, test_file)
