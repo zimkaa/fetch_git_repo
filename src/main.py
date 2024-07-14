@@ -1,4 +1,5 @@
 from __future__ import annotations
+
 import asyncio
 import base64
 import hashlib
@@ -9,17 +10,15 @@ from pathlib import Path
 from typing import Final
 
 import aiofiles
-from aiohttp import ClientSession
-from aiohttp import ClientTimeout
+from aiohttp import ClientSession, ClientTimeout
 
-from src.my_types import FileStructure
-from src.my_types import ResponseStructure
-from src.my_types import TreeElement
-
+from src.my_types import FileStructure, ResponseStructure, TreeElement
 
 HEADERS: Final[dict] = {"accept": "application/json"}
 
-URL: Final[str] = "https://gitea.radium.group/api/v1/repos/radium/project-configuration/git/trees/HEAD?recursive=true"
+URL: Final[str] = (
+    "https://gitea.radium.group/api/v1/repos/radium/project-configuration/git/trees/HEAD?recursive=true"
+)
 
 TEMP_FOLDER = Path("/tmp")
 
@@ -101,7 +100,9 @@ async def main() -> None:
                 _create_empty_file(item.path)
 
         batch_size = structure.total_count // 3  # 3 - stream
-        assert batch_size > 0, "Repo doesn't have enough files to load parallel 3 - way stream"
+        assert (
+            batch_size > 0
+        ), "Repo doesn't have enough files to load parallel 3 - way stream"
         urls_batch1, urls_batch2, urls_batch3 = batched(file_urls, batch_size + 1)
 
         file_structures: list[FileStructure] = []
