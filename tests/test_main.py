@@ -3,9 +3,8 @@ from unittest.mock import patch
 import pytest
 from aiohttp import web
 
-from tests.conftest import get_response_structure_dict
 from src.main import main
-
+from tests.conftest import get_response_structure_dict
 
 URL = "/"
 
