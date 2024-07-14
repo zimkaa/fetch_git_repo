@@ -1,0 +1,56 @@
+[tool.poetry]
+name = "src"
+version = "0.0.1"
+description = "Test task"
+authors = ["Anton Zimin <doe@example.net>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+aiofiles = "^24.1.0"
+aiohttp = "^3.9.5"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.3"
+pytest-cov = "^4.1.0"
+pytest-sugar = "^0.9.7"
+pytest-xdist = {extras = ["psutil"], version = "^3.5.0"}
+pytest-mock = "^3.6.1"
+pytest-snapshot = "^0.9.0"
+pytest-httpx = "^0.27.0"
+Faker = "^20.1.0"
+asgi-lifespan = "^2.1.0"
+nitpick = "^0.35.0"
+mimesis = "^17.0.0"
+pytest-asyncio = "^0.23.7"
+
+[tool.poetry.group.dev.dependencies]
+wemake-python-styleguide = "^0.18.0"
+flake8-pytest-style = "^1.7.2"
+flake8-annotations = "^3.0.1"
+flake8-logging-format = "^0.9.0"
+flake8-spellcheck = "^0.28.0"
+isort = "^5.7.0"
+
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-cpms = "poetry.masonry.api"
+
+[tool.nitpick]
+style = "https://gitea.radium.group/radium/project-configuration/raw/branch/master/nitpick/all.toml"
+
+[tool.pytest.ini_options]
+testpaths = [
+	"tests",
+]
+python_files = "test*.py"
+addopts = "-rsxX -l --tb=short --strict-markers --doctest-modules"
+xfail_strict = "true"
+cache_dir = "/tmp/pytest_cache"
+asyncio_mode="auto"
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+use_parentheses = true
