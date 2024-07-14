@@ -24,6 +24,7 @@ asgi-lifespan = "^2.1.0"
 nitpick = "^0.35.0"
 mimesis = "^17.0.0"
 pytest-asyncio = "^0.23.7"
+pytest-aiohttp = "^1.0.5"
 
 [tool.poetry.group.dev.dependencies]
 wemake-python-styleguide = "^0.18.0"
