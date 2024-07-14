@@ -1,20 +1,14 @@
 from __future__ import annotations
+
 import base64
 from copy import deepcopy
 from typing import Any
 
 import pytest
-from mimesis import Algorithm
-from mimesis import Cryptographic
-from mimesis import Internet
-from mimesis import Numeric
-from mimesis import Path
+from mimesis import Algorithm, Cryptographic, Internet, Numeric, Path
 from mimesis.schema import Schema
 
-from src.my_types import FileStructure
-from src.my_types import ResponseStructure
-from src.my_types import TreeElement
-
+from src.my_types import FileStructure, ResponseStructure, TreeElement
 
 ORIGINAL_STRING = "Hello, World!"
 byte_string = ORIGINAL_STRING.encode("utf-8")
