@@ -3,9 +3,8 @@ from unittest.mock import AsyncMock
 import pytest
 from aiohttp import web
 
-from tests.conftest import get_file_dict
-from tests.conftest import tree_element_blob
 from src.main import _download_file_structure
+from tests.conftest import get_file_dict, tree_element_blob
 
 
 async def response(request):
@@ -20,7 +19,9 @@ def session_download(event_loop, aiohttp_client):
 
 
 @pytest.mark.asyncio()
-async def test_download_file_structure_success(session_download, file_structure) -> None:
+async def test_download_file_structure_success(
+    session_download, file_structure
+) -> None:
     session = session_download
     elements = (tree_element_blob,)
     result = await _download_file_structure(elements, session)
