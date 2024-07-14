@@ -2,12 +2,11 @@ import asyncio
 from unittest.mock import patch
 
 import pytest
-from aiohttp import ClientSession
-from aiohttp import web
+from aiohttp import ClientSession, web
 
-from tests.conftest import get_response_structure_dict
 from src.main import _fetch_repo_structure
 from src.my_types import ResponseStructure
+from tests.conftest import get_response_structure_dict
 
 
 async def response(request):
